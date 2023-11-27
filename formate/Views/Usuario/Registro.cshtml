@@ -1,0 +1,136 @@
+﻿@model formate.Models.Entities.Usuario
+
+@{
+    Layout = "Privacy";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./global.css" />
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Source Sans 3:wght@400;600&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open Sans:wght@400;600&display=swap" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="registrarse">
+        <div class="footer">
+            <div class="footer1"></div>
+            <div class="frmate">© 2023, fórmate</div>
+            <div class="este-sitio-est-container">
+                <span>
+                    Este sitio está protegido por reCAPTCHA y se aplica la Política de
+                    privacidad y Términos de uso de Google.
+                </span>
+                <span class="ultima-actualizacion-0311202">Ultima actualizacion 03/11/2023</span>
+            </div>
+            <div class="donaciones">Donaciones</div>
+            <div class="quiero-donar-para">
+                Quiero donar para ayudar a mas jóvenes
+            </div>
+            <div class="trminos-y-condiciones">Términos y condiciones</div>
+            <div class="politica-y-privacidad">Politica y privacidad</div>
+            <div class="politica-de-cookies">Politica de cookies</div>
+            <div class="legal">Legal</div>
+            <img class="formate-removebg-preview-3-icon" alt="" src="./public/formateremovebgpreview-3@2x.png" />
+
+            <div class="footer-child"></div>
+        </div>
+
+
+
+        <form class="container col-10 form">
+            <div class="registro">
+                <div class="boton-continuar">
+                    <div class="boton-continuar-child"></div>
+                    <div class="continuar"><button> Continuar</button></div>
+                </div>
+                <div class="ya-tienes-una-container">
+                    <p class="ya-tienes-una-cuenta-iniciar">
+                        <span>¿Ya tienes una cuenta? </span>
+                        <span class="iniciar-sesin">Iniciar sesión</span>
+                    </p>
+                    <p class="ya-tienes-una-cuenta-iniciar">
+                        Al registrarse acepta las politicas de seguridad y datos, todos sus
+                        datos estan protegidos
+                    </p>
+                </div>
+                <div class="nombre-r">
+                    <label for="nombre">Nombre</label>
+                    <div class="rectangle-parent">
+                        <input type="text" id="nombre" name="nombre" placeholder="Ingrese su nombre" required />
+                    </div>
+                </div>
+
+                <div class="apellido-r">
+                    <label for="apellido">Apellido</label>
+                    <div class="rectangle-group">
+                        <input type="text" id="apellido" name="apellido" placeholder="Ingrese apellido" required />
+                    </div>
+                </div>
+
+                <div class="contrasea-r">
+                    <label for="contrasena">Contraseña</label>
+                    <div class="rectangle-container">
+                        <input type="password" id="contrasena" name="contrasena" placeholder="Ingrese una contraseña" required />
+                    </div>
+                </div>
+
+                <div class="correo-r">
+                    <label for="correo">Correo</label>
+                    <div class="correo1">
+                        <input type="email" id="correo" name="correo" placeholder="Ingrese su correo" required />
+                    </div>
+                </div>
+
+                <img class="registro-child" alt="" src="./public/line-1.svg" />
+
+                <div class="registrate">Registrate</div>
+        </form>
+
+
+
+
+    </div>
+    <div class="barra-de-navegacion">
+        <div class="header"></div>
+        <div class="boton-iniciar-sesion">
+            <img class="boton-icon" alt="" src="./public/boton.svg" />
+
+
+
+            <div class="iniciar-sesin1"><button> Iniciar sesión </button> </div>
+        </div>
+        <div class="registrarse1">Registrarse</div>
+        <div class="quienes-somos">Quienes somos</div>
+        <div class="categorias">Categorias</div>
+        <div class="inicio">Inicio</div>
+    </div>
+    <img class="logo-prueba-icon" alt="" src="./public/logoprueba@2x.png" />
+    </div>
+
+    <form class="container col-9 form">
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="mb-3 form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+</body>
+</html>
