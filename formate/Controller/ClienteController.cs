@@ -8,22 +8,22 @@ namespace formate.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class UsuarioController : ControllerBase
+    public class ClienteController : ControllerBase
     {
-        private readonly IUsuarioServices _usuarioServices;
+        private readonly IClienteServices _clienteService;
 
-        public UsuarioController(IUsuarioServices usuarioServices)
+        public ClienteController(IClienteServices clienteServices)
         {
-            _usuarioServices = usuarioServices;
+            _clienteService = clienteServices;
         }
 
         [HttpGet("GetAll")]
-        public async Task<ActionResult<List<Usuario>>> GetAll()
+        public async Task<ActionResult<List<Cliente>>> GetAll()
         {
             try
             {
-                var usuarios = await _usuarioServices.GetAll();
-                return Ok(usuarios);
+                var clientes = await _clienteService.GetAll();
+                return Ok(clientes);
             }
             catch (Exception ex)
             {
@@ -32,12 +32,12 @@ namespace formate.Controllers
         }
 
         [HttpPost("Crear")]
-        public async Task<ActionResult<Usuario>> Crear([FromBody] Usuario usuario)
+        public async Task<ActionResult<Cliente>> Crear([FromBody] Cliente cliente)
         {
             try
             {
-                var nuevoUsuario = await _usuarioServices.Crear(usuario);
-                return Ok(nuevoUsuario);
+                var nuevoCliente = await _clienteService.Crear(cliente);
+                return Ok(nuevoCliente);
             }
             catch (Exception ex)
             {
@@ -46,12 +46,12 @@ namespace formate.Controllers
         }
 
         [HttpPut("Editar")]
-        public async Task<ActionResult<Usuario>> Editar([FromBody] Usuario usuario)
+        public async Task<ActionResult<Cliente>> Editar([FromBody] Cliente cliente)
         {
             try
             {
-                var usuarioEditado = await _usuarioServices.Editar(usuario);
-                return Ok(usuarioEditado);
+                var nuevoCliente = await _clienteService.Editar(cliente);
+                return Ok(nuevoCliente);
             }
             catch (Exception ex)
             {
@@ -60,15 +60,15 @@ namespace formate.Controllers
         }
 
         [HttpGet("GetById/{id}")]
-        public async Task<ActionResult<Usuario>> GetById(int id)
+        public async Task<ActionResult<Cliente>> GetById(int id)
         {
             try
             {
-                var usuario = await _usuarioServices.GetbyId(id);
-                if (usuario == null)
+                var cliente = await _clienteService.GetbyId(id);
+                if (cliente == null)
                     return NotFound($"Usuario con id {id} no encontrado");
 
-                return Ok(usuario);
+                return Ok(cliente);
             }
             catch (Exception ex)
             {
@@ -77,11 +77,11 @@ namespace formate.Controllers
         }
 
         [HttpDelete("Eliminar/{id}")]
-        public ActionResult EliminarUsuario(int id)
+        public ActionResult EliminarCliente(int id)
         {
             try
             {
-                var eliminado = _usuarioServices.EliminarUsuario(id);
+                var eliminado = _clienteService.EliminarCliente(id);
                 if (!eliminado)
                     return NotFound($"Usuario con id {id} no encontrado");
 

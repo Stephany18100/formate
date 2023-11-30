@@ -5,23 +5,23 @@ using Microsoft.EntityFrameworkCore;
 
 namespace formate.Services.Service
 {
-    public class UsuarioServices : IUsuarioServices
+    public class ClienteService : IClienteServices
     {
 
         private readonly ApplicationDbContext _context;
 
-        public UsuarioServices(ApplicationDbContext context)
+        public ClienteService(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<Usuario>> GetAll()
+        public async Task<List<Cliente>> GetAll()
         {
 
             try
             {
 
-                var res = await _context.Usuarios.ToListAsync();
+                var res = await _context.Clientes.ToListAsync();
                 return res;
             }
             catch (Exception)
@@ -35,21 +35,23 @@ namespace formate.Services.Service
         }
 
 
-        public async Task<Usuario> Crear(Usuario i)
+        public async Task<Cliente> Crear(Cliente i)
         {
 
             try
             {
 
-                Usuario request = new Usuario()
+                Cliente request = new Cliente()
                 {
-                    PkUsuario = 1,
-                    NombreUsu = "Maria Jose",
-                    Contrasena = "1234",
+                    PkCliente = 1,
+                    Nombre = i.Nombre,
+                    Apellido = i.Apellido,
+                    Correo = i.Correo,
                     FkRol = 1
+
                 };
 
-                var response = await _context.Usuarios.AddAsync(request);
+                var response = await _context.Clientes.AddAsync(request);
                 _context.SaveChanges();
 
                 return request;
@@ -65,21 +67,22 @@ namespace formate.Services.Service
 
 
 
-        public async Task<Usuario> Editar(Usuario i)
+        public async Task<Cliente> Editar(Cliente i)
         {
             try
             {
 
-                Usuario usuario = _context.Usuarios.Find(i.PkUsuario);
+                Cliente cliente = _context.Clientes.Find(i.PkCliente);
 
-                usuario.NombreUsu = i.NombreUsu;
-                usuario.Contrasena = i.Contrasena;
-                usuario.FkRol = i.FkRol;
+                cliente.Nombre = i.Nombre;
+                cliente.Apellido = i.Apellido;
+                cliente.Correo = i.Correo;
+                cliente.FkRol = i.FkRol;
 
-                _context.Entry(usuario).State = EntityState.Modified;
+                _context.Entry(cliente).State = EntityState.Modified;
                 await _context.SaveChangesAsync();
 
-                return usuario;
+                return cliente;
 
             }
             catch (Exception)
@@ -91,11 +94,11 @@ namespace formate.Services.Service
         }
 
 
-        public async Task<Usuario> GetbyId(int id)
+        public async Task<Cliente> GetbyId(int id)
         {
             try
             {
-                var response = await _context.Usuarios.FirstOrDefaultAsync(x => x.PkUsuario == id);
+                var response = await _context.Clientes.FirstOrDefaultAsync(x => x.PkCliente == id);
 
                 return response;
 
@@ -109,17 +112,16 @@ namespace formate.Services.Service
         }
 
 
-
         public bool EliminarCliente(int id)
         {
             try
             {
-                Usuario usuario = _context.Usuarios.Find(id);
+                Cliente cliente = _context.Clientes.Find(id);
 
 
-                if (usuario != null)
+                if (cliente != null)
                 {
-                    var res = _context.Usuarios.Remove(usuario);
+                    var res = _context.Clientes.Remove(cliente);
                     _context.SaveChanges();
                     return true;
 
@@ -136,6 +138,7 @@ namespace formate.Services.Service
             {
                 throw new Exception("Succedio un error " + ex.Message);
             }
+
         }
     }
 }
