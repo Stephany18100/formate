@@ -16,6 +16,8 @@ namespace formate.Context
 
         public virtual DbSet<Cliente> Clientes { get; set; }
 
+        public virtual DbSet<Comentario> Comentarios { get; set; } //Mov Tay
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -30,7 +32,7 @@ namespace formate.Context
                 new Rol
                 {
                     PkRoles = 2,
-                    Nombrerol = "sa"
+                    Nombrerol = "cliente"
                 });
 
 
@@ -40,7 +42,7 @@ namespace formate.Context
                 new Usuario
                 {
                     PkUsuario = 1,
-                    NombreUsu = "Maria Jose",
+                    NombreUsu = "Tay",
                     Contrasena = "1234",
                     FkRol = 1
 
