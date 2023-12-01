@@ -10,6 +10,10 @@ namespace formate.Services.IServices
         public Task<Usuario> Editar(Usuario i);
 
         public Task<Usuario> GetbyId(int id);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3ce4a15ebc9a49a45e8ada8785858236ebfc4c93
         bool EliminarUsuario(int id);
     }
 }

@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using formate.Context;
 
@@ -11,9 +12,11 @@ using formate.Context;
 namespace formate.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231130191537_Example")]
+    partial class Example
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -22,30 +25,6 @@ namespace formate.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-<<<<<<< HEAD
-            modelBuilder.Entity("formate.Models.Entities.Categoria", b =>
-                {
-                    b.Property<int>("PkCategoria")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PkCategoria"));
-
-                    b.Property<string>("Descripcion")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("Titulo")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PkCategoria");
-
-                    b.ToTable("Categorias");
-                });
-
-=======
->>>>>>> 3ce4a15ebc9a49a45e8ada8785858236ebfc4c93
             modelBuilder.Entity("formate.Models.Entities.Cliente", b =>
                 {
                     b.Property<int>("PkCliente")
@@ -76,34 +55,6 @@ namespace formate.Migrations
                     b.ToTable("Clientes");
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("formate.Models.Entities.Comentario", b =>
-                {
-                    b.Property<int>("PkComentario")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PkComentario"));
-
-                    b.Property<int>("ClientesPkCliente")
-                        .HasColumnType("int");
-
-                    b.Property<int?>("FkCliente")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Texto")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PkComentario");
-
-                    b.HasIndex("ClientesPkCliente");
-
-                    b.ToTable("Comentarios");
-                });
-
-=======
->>>>>>> 3ce4a15ebc9a49a45e8ada8785858236ebfc4c93
             modelBuilder.Entity("formate.Models.Entities.Rol", b =>
                 {
                     b.Property<int>("PkRoles")
@@ -129,11 +80,7 @@ namespace formate.Migrations
                         new
                         {
                             PkRoles = 2,
-<<<<<<< HEAD
-                            Nombrerol = "cliente"
-=======
                             Nombrerol = "sa"
->>>>>>> 3ce4a15ebc9a49a45e8ada8785858236ebfc4c93
                         });
                 });
 
@@ -169,11 +116,7 @@ namespace formate.Migrations
                             PkUsuario = 1,
                             Contrasena = "1234",
                             FkRol = 1,
-<<<<<<< HEAD
-                            NombreUsu = "Tay"
-=======
                             NombreUsu = "Maria Jose"
->>>>>>> 3ce4a15ebc9a49a45e8ada8785858236ebfc4c93
                         });
                 });
 
@@ -186,20 +129,6 @@ namespace formate.Migrations
                     b.Navigation("Roles");
                 });
 
-<<<<<<< HEAD
-            modelBuilder.Entity("formate.Models.Entities.Comentario", b =>
-                {
-                    b.HasOne("formate.Models.Entities.Cliente", "Clientes")
-                        .WithMany()
-                        .HasForeignKey("ClientesPkCliente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Clientes");
-                });
-
-=======
->>>>>>> 3ce4a15ebc9a49a45e8ada8785858236ebfc4c93
             modelBuilder.Entity("formate.Models.Entities.Usuario", b =>
                 {
                     b.HasOne("formate.Models.Entities.Rol", "Roles")
