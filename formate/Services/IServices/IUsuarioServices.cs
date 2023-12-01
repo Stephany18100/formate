@@ -11,7 +11,6 @@ namespace formate.Services.IServices
 
         public Task<Usuario> GetbyId(int id);
 
-        public bool EliminarCliente(int id);
         bool EliminarUsuario(int id);
     }
 }

@@ -110,7 +110,7 @@ namespace formate.Services.Service
 
 
 
-        public bool EliminarCliente(int id)
+        public bool EliminarUsuario(int id)
         {
             try
             {
