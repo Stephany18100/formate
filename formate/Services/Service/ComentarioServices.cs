@@ -5,10 +5,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace formate.Services.Service
 {
-    public class ComentarioService : IComentarioServices
+    public class ComentarioServices : IComentarioServices
     {
         private readonly ApplicationDbContext _context;
-        public ComentarioService(ApplicationDbContext context) 
+        public ComentarioServices(ApplicationDbContext context) 
         {
             _context = context;
         }

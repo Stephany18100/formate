@@ -6,100 +6,120 @@
     <title>@ViewData["Title"] - formate</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/formate.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/formate.stylaso.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ProyectoWeb_24AM_2023</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Contacto">Contacto</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-    </header>
 
 
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <div class="multilevel-offcanvas off-canvas position-right" id="offCanvasRight" data-off-canvas>
+
+        <ul class="vertical menu" data-accordion-menu>
+            <li>
+                <a href="#">SERVICES</a>
+                <ul class="menu vertical nested">
+                    <li><a href="#">Brand</a></li>
+                    <li><a href="#">Web Apps</a></li>
+                    <li><a href="#">Mobile Apps</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">PRODUCTS</a>
+                <ul class="menu vertical nested">
+                    <li><a href="#">Product 1</a></li>
+                    <li><a href="#">Product 2</a></li>
+                    <li><a href="#">Product 3</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">CITIES</a>
+                <ul class="menu vertical nested">
+                    <li><a href="#">London</a></li>
+                    <li><a href="#">New York</a></li>
+                    <li><a href="#">Paris</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="vertical menu">
+            <li class="off-canvas-menu-item"><a href="#">Tour</a></li>
+            <li><a href="#">Login</a></li>
+            <li><a href="#">Register</a></li>
+            <li><a href="#">Pricing</a></li>
+            <li><a href="#">Support</a></li>
+        </ul>
+        <ul class="vertical menu">
+            <li><a href="#">Journal</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Terms & Conditions</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Students</a></li>
+        </ul>
+        <ul class="menu simple social-links">
+            <li><a href="#" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-facebook-square" aria-hidden="true"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-github-square" aria-hidden="true"></i></a></li>
+            <li><a href="#" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a></li>
+        </ul>
     </div>
 
-    <div class="container">
-        <footer class="py-5">
-            <div class="row">
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-6 col-md-2 mb-3">
-                    <h5>Section</h5>
-                    <ul class="nav flex-column">
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Home</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Features</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Pricing</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">FAQs</a></li>
-                        <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">About</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-5 offset-md-1 mb-3">
-                    <form>
-                        <h5>Subscribe to our newsletter</h5>
-                        <p>Monthly digest of what's new and exciting from us.</p>
-                        <div class="d-flex flex-column flex-sm-row w-100 gap-2">
-                            <label for="newsletter1" class="visually-hidden">Email address</label>
-                            <input id="newsletter1" type="text" class="form-control" placeholder="Email address">
-                            <button class="btn btn-primary" type="button">Subscribe</button>
-                        </div>
-                    </form>
-                </div>
+    <div class="off-canvas-content" data-off-canvas-content>
+        <div class="nav-bar">
+            <div class="nav-bar-left">
+                <a class="nav-bar-logo"><img class="logo" src="https://placehold.it/150x30"></a>
             </div>
-
-            <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
-                <p>&copy; 2023 Company, Inc. All rights reserved.</p>
-                <ul class="list-unstyled d-flex">
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#twitter" /></svg></a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#instagram" /></svg></a></li>
-                    <li class="ms-3"><a class="link-body-emphasis" href="#"><svg class="bi" width="24" height="24"><use xlink:href="#facebook" /></svg></a></li>
+            <div class="nav-bar-right">
+                <ul class="menu">
+                    <li class="hide-for-small-only"><a href="#">TOUR</a></li>
+                    <li class="hide-for-small-only"><a href="#">LOGIN</a></li>
+                    <li>
+                    <li>
+                        <button class="offcanvas-trigger" type="button" data-open="offCanvasRight">
+                            <span class="offcanvas-trigger-text hide-for-small-only">Menu</span>
+                            <div class="hamburger">
+                                <span class="line"></span>
+                                <span class="line"></span>
+                                <span class="line"></span>
+                            </div>
+                        </button>
+                    </li>
                 </ul>
             </div>
-        </footer>
+        </div>
+        <div class="body-info">
+            <h4> Multilevel Off-Canvas </h4>
+            <a class="button disabled" href="#">Watch Video (coming soon)</a>
+        </div>
     </div>
+
+
+
+
+
+ 
+   <footer class="footer">
+          <div class="overlap">
+            <div class="text-wrapper-10">© 2023, fórmate</div>
+            <p class="este-sitio-est">
+              <span class="span"
+                >Este sitio está protegido por reCAPTCHA y se aplica la Política de privacidad y Términos de uso de
+                Google.
+              </span>
+              <span class="text-wrapper-11">Ultima actualizacion 03/11/2023</span>
+            </p>
+            <div class="frame-2">
+              <div class="text-wrapper-12">Donaciones</div>
+              <p class="text-wrapper-13">Quiero donar para ayudar a mas jóvenes</p>
+            </div>
+            <div class="frame-3">
+              <div class="text-wrapper-12">Legal</div>
+              <div class="text-wrapper-14">Términos y condiciones</div>
+              <div class="text-wrapper-14">Politica y privacidad</div>
+              <div class="text-wrapper-14">Politica de cookies</div>
+            </div>
+            <img class="formate-removebg" src="img/formate-removebg-preview-3.png" />
+            <img class="line" src="img/line-3.svg" />
+          </div>
+        </footer>
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

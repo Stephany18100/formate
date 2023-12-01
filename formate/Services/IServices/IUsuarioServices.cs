@@ -10,5 +10,6 @@ namespace formate.Services.IServices
         public Task<Usuario> Editar(Usuario i);
 
         public Task<Usuario> GetbyId(int id);
+        bool EliminarUsuario(int id);
     }
 }

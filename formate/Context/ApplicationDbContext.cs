@@ -14,9 +14,11 @@ namespace formate.Context
         public virtual DbSet<Usuario> Usuarios { get; set; }
         public virtual DbSet<Rol> Roles { get; set; }
 
-        public virtual DbSet<Cliente> Clientes { get; set; }
+        public virtual DbSet<Cliente> Clientes { get; set; }   
 
         public virtual DbSet<Comentario> Comentarios { get; set; } //Mov Tay
+
+        public virtual DbSet<Categoria> Categorias { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

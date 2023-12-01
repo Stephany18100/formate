@@ -27,7 +27,7 @@ namespace formate.Controllers
         }
 
 
-        public IActionResult Inicio()
+        public IActionResult Index()
         {
             return View();
         }

@@ -15,7 +15,12 @@ builder.Configuration.GetConnectionString("DefaultConnection")
 
 //inyeccion de dependencias
 
-builder.Services.AddTransient<IComentarioServices, ComentarioService>();
+builder.Services.AddTransient<ICategoriaServices, CategoriaServices>();
+builder.Services.AddTransient<IClienteServices, ClienteServices>();
+builder.Services.AddTransient<IComentarioServices, ComentarioServices>();
+builder.Services.AddTransient<IRolServices, RolServices>();
+builder.Services.AddTransient<IUsuarioServices, UsuarioServices>();
+
 
 builder.Services.AddHttpContextAccessor();
 

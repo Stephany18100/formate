@@ -3,19 +3,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - formate</title>
+    <title>@ViewData["Title"] - ProyectoWeb_24AM_2023</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/formate.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/ProyectoWeb_24AM_2023.styles.css" asp-append-version="true" />
 
-  @*Iconos*@
+    @*Iconos*@
     <script src="https://kit.fontawesome.com/06370cda79.js" crossorigin="anonymous"></script>
 
 </head>
 <body>
 
     <header>
-        <nav class="navbar" style="background-color: #19B3D3;">
+        <nav class="navbar" style="background-color: #0b1d2b;">
             <div class="container-fluid">
                 <a class="navbar-brand">Navbar</a>
                 <div class="d-flex" role="search">
@@ -26,34 +26,29 @@
         </nav>
     </header>
 
-
-    <div class="dashboard-container">
-
-        <!-- Sidebar -->
-        <aside class="sidebar">
-            <div class="profile_info">
-                <img src="~/Img/Logo-formate.jpeg" class="profile_image" alt="">
-                <h4>Fórmate</h4>
-            </div>
-            <a style="background:#19B3D3;" asp-area="" asp-controller="Home" asp-action="Index"><span>Home</span></a>
-            <a href="#"><span>Components</span></a>
-            <a href="#"><span>Tables</span></a>
-            <a href="#"><span>Formularios</span></a>
-            <a href="#"><span>Libros</span></a>
-            <a href="#"><span>About</span></a>
-            <a href="#"><span>Settings</span></a>
-            <a asp-controller="Libro" asp-action="Index"><span>Libros</span></a>
-
-        </aside>
-
-        <div class="container">
-            <main role="main" class="pb-3">
-                @RenderBody()
-            </main>
+    <div class="sidebar">
+        <div class="profile_info">
+            <img src="~/Img/usuario.png" class="profile_image" alt="">
+            <h4>*Un buen nombre*</h4>
         </div>
+        <a style="background:#0799b6;" asp-area="" asp-controller="Home" asp-action="Index"><span>Dashboard</span></a>
+        <a style="background:#4a6eb0;" asp-controller="Usuario" asp-action="Index"> <span>Categorias</span></a>
+        <a style="background:#114c5f;" asp-controller="Libro" asp-action="Index"> <span>Clientes</span></a>
+        <a style="background:#114c5f;" asp-controller="Articulo" asp-action="Index"> <span>Usuarios</span></a>
+        <a style="background:#114c5f;" asp-controller="Articulo" asp-action="Index"> <span>Rol</span></a>
+        <a href="#"><span>Forms</span></a>
+        <a href="#"><span>About</span></a>
+        <a href="#"><span>Settings</span></a>
 
     </div>
 
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
 
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

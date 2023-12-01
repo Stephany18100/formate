@@ -109,6 +109,7 @@ namespace formate.Services.Service
         }
 
 
+
         public bool EliminarUsuario(int id)
         {
             try
@@ -135,9 +136,6 @@ namespace formate.Services.Service
             {
                 throw new Exception("Succedio un error " + ex.Message);
             }
-
         }
-
-
     }
 }

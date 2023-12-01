@@ -1,69 +1,96 @@
-﻿using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
+﻿using System.Collections.Generic;
+using System.Threading.Tasks;
 using formate.Models.Entities;
 using formate.Services.IServices;
-using formate.Services.Service;
-using Microsoft.EntityFrameworkCore;
-using formate.Context;
+using Microsoft.AspNetCore.Mvc;
 
 namespace formate.Controllers
 {
-    public class UsuarioController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioServices _usuarioServices;
-        private readonly ApplicationDbContext _context;
 
-        public UsuarioController(IUsuarioServices usuarioService, ApplicationDbContext context)
+        public UsuarioController(IUsuarioServices usuarioServices)
         {
-            _usuarioServices = usuarioService;
-            _context = context;
+            _usuarioServices = usuarioServices;
         }
 
-        public async Task<IActionResult> Index()
+        [HttpGet("GetAll")]
+        public async Task<ActionResult<List<Usuario>>> GetAll()
         {
-            var response = await _usuarioServices.GetAll();
-            return View(response);
-        }
-
-        [HttpGet]
-        public IActionResult Crear()
-        {
-            ViewBag.Roles = _context.Roles.Select(p => new SelectListItem()
+            try
             {
-                Text = p.Nombrerol,
-                Value = p.PkRoles.ToString()
-            });
-
-            return View();
-        }
-
-        [HttpPost]
-        public IActionResult Crear(Usuario usuario)
-        {
-            var response = _usuarioServices.Crear(usuario);
-            return RedirectToAction(nameof(Index));
-        }
-
-        [HttpGet]
-        public async Task<IActionResult> Editar(int id)
-        {
-            var response = await _usuarioServices.GetbyId(id);
-
-            ViewBag.Roles = _context.Roles.Select(p => new SelectListItem()
+                var usuarios = await _usuarioServices.GetAll();
+                return Ok(usuarios);
+            }
+            catch (Exception ex)
             {
-                Text = p.Nombrerol,
-                Value = p.PkRoles.ToString()
-            });
-
-            return View(response);
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
         }
 
-        [HttpPost]
-        public IActionResult Editar(Usuario usuario)
+        [HttpPost("Crear")]
+        public async Task<ActionResult<Usuario>> Crear([FromBody] Usuario usuario)
         {
-            var response = _usuarioServices.Editar(usuario);
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var nuevoUsuario = await _usuarioServices.Crear(usuario);
+                return Ok(nuevoUsuario);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
+
+        [HttpPut("Editar")]
+        public async Task<ActionResult<Usuario>> Editar([FromBody] Usuario usuario)
+        {
+            try
+            {
+                var usuarioEditado = await _usuarioServices.Editar(usuario);
+                return Ok(usuarioEditado);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
+
+        [HttpGet("GetById/{id}")]
+        public async Task<ActionResult<Usuario>> GetById(int id)
+        {
+            try
+            {
+                var usuario = await _usuarioServices.GetbyId(id);
+                if (usuario == null)
+                    return NotFound($"Usuario con id {id} no encontrado");
+
+                return Ok(usuario);
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
+        }
+
+        [HttpDelete("Eliminar/{id}")]
+        public ActionResult EliminarUsuario(int id)
+        {
+            try
+            {
+                var eliminado = _usuarioServices.EliminarUsuario(id);
+                if (!eliminado)
+                    return NotFound($"Usuario con id {id} no encontrado");
+
+                return Ok($"Usuario con id {id} eliminado exitosamente");
+            }
+            catch (Exception ex)
+            {
+                return StatusCode(500, $"Error interno del servidor: {ex.Message}");
+            }
         }
     }
 }

@@ -13,6 +13,20 @@ namespace formate.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "Categorias",
+                columns: table => new
+                {
+                    PkCategoria = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Titulo = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Descripcion = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Categorias", x => x.PkCategoria);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Roles",
                 columns: table => new
                 {
@@ -94,13 +108,13 @@ namespace formate.Migrations
                 values: new object[,]
                 {
                     { 1, "admin" },
-                    { 2, "sa" }
+                    { 2, "cliente" }
                 });
 
             migrationBuilder.InsertData(
                 table: "Usuarios",
                 columns: new[] { "PkUsuario", "Contrasena", "FkRol", "NombreUsu" },
-                values: new object[] { 1, "1234", 1, "Maria Jose" });
+                values: new object[] { 1, "1234", 1, "Tay" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Clientes_FkRol",
@@ -121,6 +135,9 @@ namespace formate.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Categorias");
+
             migrationBuilder.DropTable(
                 name: "Comentarios");
 

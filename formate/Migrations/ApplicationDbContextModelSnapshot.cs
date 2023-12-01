@@ -22,6 +22,27 @@ namespace formate.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("formate.Models.Entities.Categoria", b =>
+                {
+                    b.Property<int>("PkCategoria")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PkCategoria"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PkCategoria");
+
+                    b.ToTable("Categorias");
+                });
+
             modelBuilder.Entity("formate.Models.Entities.Cliente", b =>
                 {
                     b.Property<int>("PkCliente")
@@ -102,7 +123,7 @@ namespace formate.Migrations
                         new
                         {
                             PkRoles = 2,
-                            Nombrerol = "sa"
+                            Nombrerol = "cliente"
                         });
                 });
 
@@ -138,7 +159,7 @@ namespace formate.Migrations
                             PkUsuario = 1,
                             Contrasena = "1234",
                             FkRol = 1,
-                            NombreUsu = "Maria Jose"
+                            NombreUsu = "Tay"
                         });
                 });
 

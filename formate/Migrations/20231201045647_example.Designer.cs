@@ -12,7 +12,7 @@ using formate.Context;
 namespace formate.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20231130011223_example")]
+    [Migration("20231201045647_example")]
     partial class example
     {
         /// <inheritdoc />
@@ -24,6 +24,27 @@ namespace formate.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("formate.Models.Entities.Categoria", b =>
+                {
+                    b.Property<int>("PkCategoria")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PkCategoria"));
+
+                    b.Property<string>("Descripcion")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Titulo")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("PkCategoria");
+
+                    b.ToTable("Categorias");
+                });
 
             modelBuilder.Entity("formate.Models.Entities.Cliente", b =>
                 {
@@ -105,7 +126,7 @@ namespace formate.Migrations
                         new
                         {
                             PkRoles = 2,
-                            Nombrerol = "sa"
+                            Nombrerol = "cliente"
                         });
                 });
 
@@ -141,7 +162,7 @@ namespace formate.Migrations
                             PkUsuario = 1,
                             Contrasena = "1234",
                             FkRol = 1,
-                            NombreUsu = "Maria Jose"
+                            NombreUsu = "Tay"
                         });
                 });
 
